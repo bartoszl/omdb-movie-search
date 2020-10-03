@@ -1,5 +1,12 @@
 import React from 'react';
 
+import { SearchContainer, Input } from '../../components';
+
 export default () => (
-  <div> Hi </div>
+  <SearchContainer>
+    <form>
+      <Input type="text" />
+      <button type="submit"> Search </button>
+    </form>
+  </SearchContainer>
 );
