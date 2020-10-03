@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { createGlobalStyle } from 'styled-components';
 import './index.css';
 import App from './App';
 import store from './store';
 import * as serviceWorker from './serviceWorker';
 
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+  * {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+  }
+`;
+
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyle />
     <Provider store={store}>
       <App />
     </Provider>
