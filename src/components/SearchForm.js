@@ -25,7 +25,7 @@ const SearchForm = ({ defaultValues, onSubmit }) => {
       <Input
         type="text"
         ref={register}
-        name="q"
+        name="s"
         placeholder="Search..."
       />
       <Button type="submit"> Search </Button>
