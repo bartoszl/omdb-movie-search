@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { SearchContainer, Input } from '../../components';
+import useFilters from '../../hooks/useFilters';
+import { SearchContainer, SearchForm } from '../../components';
 
-export default () => (
-  <SearchContainer>
-    <form>
-      <Input type="text" />
-      <button type="submit"> Search </button>
-    </form>
-  </SearchContainer>
-);
+const IndexPage = () => {
+  const { filters, applyFilters } = useFilters();
+  const { q } = filters;
+
+  useEffect(() => {
+    // get movies
+  }, [filters]);
+
+  const handleSubmit = (values) => {
+    applyFilters(values);
+  };
+
+  return (
+    <SearchContainer collapsed={q}>
+      <SearchForm onSubmit={handleSubmit} />
+    </SearchContainer>
+  );
+};
+
+export default IndexPage;
