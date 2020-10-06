@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Input from './Input';
 import Button from './Button';
+import SearchFormWrapper from './SearchFormWrapper';
 
 const SearchForm = ({ defaultValues, onSubmit }) => {
   const {
@@ -21,21 +24,23 @@ const SearchForm = ({ defaultValues, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleSearchSubmit)} data-testid="search-form">
+    <SearchFormWrapper onSubmit={handleSubmit(handleSearchSubmit)} data-testid="search-form">
       <Input
         type="text"
         ref={register}
         name="s"
         placeholder="Search..."
       />
-      <Button type="submit"> Search </Button>
-    </form>
+      <Button type="submit">
+        <FontAwesomeIcon icon={faSearch} color="white" />
+      </Button>
+    </SearchFormWrapper>
   );
 };
 
 SearchForm.propTypes = {
   defaultValues: PropTypes.shape({
-    q: PropTypes.string,
+    s: PropTypes.string,
   }),
   onSubmit: PropTypes.func.isRequired,
 };

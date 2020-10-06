@@ -19,10 +19,11 @@ const reducer = createReducer(initialState, (builder) => builder
     records: action.payload.records,
     isLoading: false,
   }))
-  .addCase(getMovies.rejected, (state) => ({
+  .addCase(getMovies.rejected, (state, action) => ({
     ...state,
     isLoading: false,
     records: [],
+    error: action.payload,
   })));
 
 export default reducer;

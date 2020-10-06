@@ -7,3 +7,7 @@ export const getMoviesState = (
 export const getMovieList = (
   state,
 ) => getMoviesState(state).records;
+
+export const getIsLoadingFlag = (
+  state,
+) => getMoviesState(state).isLoading;
