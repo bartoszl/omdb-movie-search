@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
 import BeatLoader from 'react-spinners/BeatLoader';
 import { css } from '@emotion/core';
 import useFilters from '../../hooks/useFilters';

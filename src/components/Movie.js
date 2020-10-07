@@ -26,15 +26,25 @@ const MoviePoster = styled.img`
   height: auto;
 `;
 
+const Title = styled.h4`
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+`;
+
+const Year = styled.h5`
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+`;
+
 const Movie = ({ imgSrc, title, year }) => (
   <MovieContainer>
     <MoviePoster src={imgSrc} alt={title} />
-    <h4>
+    <Title>
       { title }
-    </h4>
-    <h5>
+    </Title>
+    <Year>
       { year }
-    </h5>
+    </Year>
   </MovieContainer>
 );
 
