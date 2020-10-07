@@ -8,7 +8,6 @@ export const getMovies = async (params) => {
   const { data } = await axios.get(DEFAULT_URL, {
     params: {
       apikey: API_KEY,
-      // i: IMDB_ID,
       ...params,
     },
   });
