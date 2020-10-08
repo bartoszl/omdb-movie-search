@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
-import store from './store';
+import Providers from './Providers';
 
-const Providers = ({ children }) => (
-  <Provider store={store}>
+const TestProviders = ({ children }) => (
+  <Providers>
     <MemoryRouter>
       {children}
     </MemoryRouter>
-  </Provider>
+  </Providers>
 );
 
-Providers.propTypes = {
+TestProviders.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const customRender = (ui, options) => render(ui, { wrapper: Providers, ...options });
+const customRender = (ui, options) => render(ui, { wrapper: TestProviders, ...options });
 
 // re-export everything
 export * from '@testing-library/react';
