@@ -11,3 +11,7 @@ export const getMovieList = (
 export const getIsLoadingFlag = (
   state,
 ) => getMoviesState(state).isLoading;
+
+export const getCount = (
+  state,
+) => getMoviesState(state).count;

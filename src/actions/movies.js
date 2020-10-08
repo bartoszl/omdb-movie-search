@@ -16,6 +16,7 @@ export const getMovies = createAsyncThunk(
 
     return {
       records: data.Search,
+      count: data.totalResults,
     };
   },
 );

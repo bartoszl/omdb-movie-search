@@ -8,6 +8,7 @@ export const initialState = {
   records: [],
   record: {},
   error: null,
+  count: 0,
 };
 
 const reducer = createReducer(initialState, (builder) => builder
@@ -16,18 +17,21 @@ const reducer = createReducer(initialState, (builder) => builder
     isLoading: true,
     records: [],
     error: null,
+    count: 0,
   }))
   .addCase(getMovies.fulfilled, (state, action) => ({
     ...state,
     records: action.payload.records,
     isLoading: false,
     error: null,
+    count: action.payload.count,
   }))
   .addCase(getMovies.rejected, (state, action) => ({
     ...state,
     isLoading: false,
     records: [],
     error: action.payload,
+    count: 0,
   }))
 
   .addCase(getMovieById.pending, (state) => ({

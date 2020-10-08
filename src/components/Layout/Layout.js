@@ -4,6 +4,7 @@ import useFilters from '../../hooks/useFilters';
 import SearchContainer from '../SearchContainer';
 import SearchForm from '../SearchForm';
 import Logo from '../Logo';
+import Content from '../Content';
 
 const Layout = ({ children }) => {
   const { filters } = useFilters();
@@ -15,7 +16,9 @@ const Layout = ({ children }) => {
         <Logo />
         <SearchForm defaultValues={filters} />
       </SearchContainer>
-      { children }
+      <Content>
+        { children }
+      </Content>
     </>
   );
 };

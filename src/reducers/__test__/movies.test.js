@@ -13,12 +13,14 @@ describe('Movies reducer', () => {
         isLoading: true,
         records: [],
         error: null,
+        count: 0,
       });
     });
 
     it('returns correct state on fulfilled', () => {
       const payload = {
         records: [{ record: 'asd' }],
+        count: 123,
       };
 
       expect(reducer(initialState, {
@@ -29,6 +31,7 @@ describe('Movies reducer', () => {
         isLoading: false,
         records: payload.records,
         error: null,
+        count: payload.count,
       });
     });
 
@@ -43,6 +46,7 @@ describe('Movies reducer', () => {
         isLoading: false,
         records: [],
         error,
+        count: 0,
       });
     });
   });
