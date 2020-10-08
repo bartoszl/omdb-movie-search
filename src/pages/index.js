@@ -1,3 +1,4 @@
-import IndexPage from './IndexPage';
+import { faFileExport } from '@fortawesome/free-solid-svg-icons';
 
-export { IndexPage };
+export { default as IndexPage } from './IndexPage';
+export { default as SingleMoviePage } from './SingleMoviePage';

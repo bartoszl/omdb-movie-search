@@ -4,10 +4,11 @@ import BeatLoader from 'react-spinners/BeatLoader';
 import { css } from '@emotion/core';
 import useFilters from '../../hooks/useFilters';
 import {
-  SearchContainer, SearchForm, Movie, MovieContainer, Logo,
+  Movie, MovieContainer,
 } from '../../components';
 import { getMovies } from '../../actions/movies';
 import { getMovieList, getIsLoadingFlag } from '../../selectors/movies';
+import { SINGLE_MOVIE_URL } from '../../constants/routes';
 
 const loaderCss = css`
   margin-top: 150px;
@@ -26,12 +27,18 @@ const IndexPage = () => {
     }
   }, [filters]);
 
+  // const handleMovieClick = () => {
+  //   history.push(SINGLE_MOVIE_URL.replace(':id', id));
+  // };
+
   return (
     <MovieContainer>
       <BeatLoader color="white" size={50} loading={isLoading} css={loaderCss} />
 
-      { movies.map(({ Poster, Title, Year }) => (
-        <Movie imgSrc={Poster} title={Title} year={Year} />
+      { movies.map(({
+        Poster, Title, Year, imdbID,
+      }) => (
+        <Movie imgSrc={Poster} title={Title} year={Year} id={imdbID} />
       ))}
     </MovieContainer>
   );
