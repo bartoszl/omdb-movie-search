@@ -5,7 +5,7 @@ const Button = styled.button`
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   border: none;
-  background-color: #0b3849;
+  background-color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
 `;
 
