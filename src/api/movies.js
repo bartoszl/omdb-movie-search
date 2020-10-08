@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-const DEFAULT_URL = 'http://www.omdbapi.com/';
-const API_KEY = '157f34ed';
+const { REACT_APP_API_URL, REACT_APP_API_KEY } = process.env;
+
+console.log(REACT_APP_API_KEY);
 
 export const getMovies = async (params) => {
-  const { data } = await axios.get(DEFAULT_URL, {
+  const { data } = await axios.get(REACT_APP_API_URL, {
     params: {
-      apikey: API_KEY,
+      apikey: REACT_APP_API_KEY,
       ...params,
     },
   });
