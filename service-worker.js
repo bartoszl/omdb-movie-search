@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/omdb-movie-search/precache-manifest.0e3191e798b0a4d57f5b2f477b21fb4b.js"
+  "/omdb-movie-search/precache-manifest.2662927618297dcfd13ccf2d3db4b37a.js"
 );
 
 self.addEventListener('message', (event) => {
