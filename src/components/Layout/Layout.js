@@ -5,6 +5,7 @@ import SearchContainer from '../SearchContainer';
 import SearchForm from '../SearchForm';
 import Logo from '../Logo';
 import Content from '../Content';
+import TypingAnimation from '../TypingAnimation';
 
 const Layout = ({ children }) => {
   const { filters } = useFilters();
@@ -14,6 +15,9 @@ const Layout = ({ children }) => {
     <>
       <SearchContainer collapsed={s}>
         <Logo />
+        <TypingAnimation>
+          Find your favorite movie!
+        </TypingAnimation>
         <SearchForm defaultValues={filters} />
       </SearchContainer>
       <Content>

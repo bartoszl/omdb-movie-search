@@ -8,6 +8,7 @@ const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   transition: height 0.75s ease-out;
   position: fixed;
   top: 0;
