@@ -2,6 +2,7 @@
   "name": "imdb-movie-search",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://bartoszl.github.io/omdb-movie-search",
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@fortawesome/fontawesome-svg-core": "^1.2.31",
@@ -30,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -51,6 +54,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.21.3",
     "eslint-plugin-react-hooks": "^4.0.0",
+    "gh-pages": "^3.1.0",
     "redux-devtools-extension": "^2.13.8"
   }
 }
