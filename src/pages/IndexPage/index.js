@@ -8,7 +8,6 @@ import {
 } from '../../components';
 import { getMovies } from '../../actions/movies';
 import { getMovieList, getIsLoadingFlag } from '../../selectors/movies';
-import { SINGLE_MOVIE_URL } from '../../constants/routes';
 
 const loaderCss = css`
   margin-top: 150px;
@@ -26,10 +25,6 @@ const IndexPage = () => {
       dispatch(getMovies(filters));
     }
   }, [filters]);
-
-  // const handleMovieClick = () => {
-  //   history.push(SINGLE_MOVIE_URL.replace(':id', id));
-  // };
 
   return (
     <MovieContainer>

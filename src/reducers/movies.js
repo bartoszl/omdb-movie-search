@@ -1,11 +1,13 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
-  getMovies,
+  getMovies, getMovieById,
 } from '../actions/movies';
 
 export const initialState = {
   isLoading: false,
   records: [],
+  record: {},
+  error: null,
 };
 
 const reducer = createReducer(initialState, (builder) => builder
@@ -23,6 +25,23 @@ const reducer = createReducer(initialState, (builder) => builder
     ...state,
     isLoading: false,
     records: [],
+    error: action.payload,
+  }))
+
+  .addCase(getMovieById.pending, (state) => ({
+    ...state,
+    isLoading: true,
+    record: {},
+  }))
+  .addCase(getMovieById.fulfilled, (state, action) => ({
+    ...state,
+    record: action.payload.record,
+    isLoading: false,
+  }))
+  .addCase(getMovieById.rejected, (state, action) => ({
+    ...state,
+    isLoading: false,
+    record: {},
     error: action.payload,
   })));
 

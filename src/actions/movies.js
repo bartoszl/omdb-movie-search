@@ -19,3 +19,20 @@ export const getMovies = createAsyncThunk(
     };
   },
 );
+
+export const getMovieById = createAsyncThunk(
+  'GET_MOVIE_BY_ID',
+  async (id, { rejectWithValue }) => {
+    const data = await api.getMovieById(id);
+
+    await wait(3000);
+
+    if (data.Response === 'False') {
+      return rejectWithValue(data.Error);
+    }
+
+    return {
+      records: data.Search,
+    };
+  },
+);
