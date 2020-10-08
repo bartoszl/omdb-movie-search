@@ -2,7 +2,7 @@
   "name": "omdb-movie-search",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://bartoszl.github.io/omdb-movie-search",
+  "homepage": "https://bartoszl.github.io/omdb-movie-search",
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@fortawesome/fontawesome-svg-core": "^1.2.31",
