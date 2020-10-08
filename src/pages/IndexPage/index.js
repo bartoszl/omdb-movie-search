@@ -29,7 +29,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <CountDisplay count={count} />
+      { !isLoading && <CountDisplay count={count} /> }
       <MovieContainer>
         <BeatLoader color="white" size={50} loading={isLoading} css={loaderCss} />
 
