@@ -15,3 +15,7 @@ export const getIsLoadingFlag = (
 export const getCount = (
   state,
 ) => getMoviesState(state).count;
+
+export const getError = (
+  state,
+) => getMoviesState(state).error;
