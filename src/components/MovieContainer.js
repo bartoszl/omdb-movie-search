@@ -10,7 +10,7 @@ const MovieContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 20vh 10px;
+  padding: 20vh 0px;
   width: 100vw;
   min-height: 100vh;
 `;

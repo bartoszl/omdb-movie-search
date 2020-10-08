@@ -3,21 +3,23 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import useFilters from '../hooks/useFilters';
 import Input from './Input';
 import Button from './Button';
 import SearchFormWrapper from './SearchFormWrapper';
 
-const SearchForm = ({ defaultValues, onSubmit }) => {
+const SearchForm = ({ defaultValues }) => {
   const {
     register, handleSubmit,
   } = useForm({
     defaultValues,
   });
 
+  const { applyFilters } = useFilters();
+
   const handleSearchSubmit = async (values) => {
     try {
-      // Submit
-      onSubmit(values);
+      applyFilters(values);
     } catch (err) {
       console.log(err);
     }
@@ -42,7 +44,6 @@ SearchForm.propTypes = {
   defaultValues: PropTypes.shape({
     s: PropTypes.string,
   }),
-  onSubmit: PropTypes.func.isRequired,
 };
 
 SearchForm.defaultProps = {

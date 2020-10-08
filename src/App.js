@@ -1,13 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import { Layout } from './components';
 import { IndexPage } from './pages';
 
 const App = () => (
   <BrowserRouter>
-    <Switch>
-      <Route path="/" component={IndexPage} />
-    </Switch>
+    <Layout>
+      <Switch>
+        <Route path="/" component={IndexPage} />
+      </Switch>
+    </Layout>
   </BrowserRouter>
 );
 

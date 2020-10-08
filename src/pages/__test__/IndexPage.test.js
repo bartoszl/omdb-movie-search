@@ -7,16 +7,18 @@ import { getMovies } from '../../api/movies';
 jest.mock('../../api/movies');
 
 describe('IndexPage', () => {
+  beforeEach(() => {
+    render((
+      <IndexPage />
+    ));
+  });
+
   afterEach(() => {
     cleanup();
   });
 
-  test('matches snapshot', () => {
+  test('Search Bar is visible', () => {
     getMovies.mockResolvedValue([]);
-
-    render((
-      <IndexPage />
-    ));
 
     const search = screen.findByPlaceholderText('Search...');
 

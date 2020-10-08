@@ -5,3 +5,4 @@ export { default as SearchForm } from './SearchForm';
 export { default as Movie } from './Movie';
 export { default as MovieContainer } from './MovieContainer';
 export { default as Logo } from './Logo';
+export { default as Layout } from './Layout';
