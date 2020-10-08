@@ -5,6 +5,7 @@ export default styled.div`
   padding: 20vh 0px;
   width: 100vw;
   min-height: 100vh;
+  box-sizing: border-box;
   background-image: url(${movieBackground});
   background-attachment: fixed;
   background-position: center;
