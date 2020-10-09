@@ -15,9 +15,11 @@ const Layout = ({ children }) => {
     <>
       <SearchContainer collapsed={s}>
         <Logo />
-        <TypingAnimation>
-          Find your favorite movie!
-        </TypingAnimation>
+        { !s && (
+          <TypingAnimation>
+            Find your favorite movie!
+          </TypingAnimation>
+        )}
         <SearchForm defaultValues={filters} />
       </SearchContainer>
       <Content>

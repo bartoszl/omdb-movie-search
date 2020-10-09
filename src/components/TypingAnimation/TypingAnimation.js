@@ -10,8 +10,12 @@ const type = keyframes`
 `;
 
 const blink = keyframes`
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
+  from{
+    border-right-color: rgba(255,255,255,.75);
+  }
+  to{
+    border-right-color: transparent;
+  }
 `;
 
 // Here we create a component that will rotate everything we pass in over two seconds
@@ -23,7 +27,7 @@ const TypingHeader = styled.h1`
   letter-spacing: 0.15rem;
   color: white;
   position: absolute;
-  top: 15rem;
+  top: 13rem;
 
   animation: ${type} 2s steps(30) 1s 1 normal both,
   ${blink} 500ms steps(30) infinite normal;
