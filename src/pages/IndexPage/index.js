@@ -1,17 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import BeatLoader from 'react-spinners/BeatLoader';
-import { css } from '@emotion/core';
 import useFilters from '../../hooks/useFilters';
 import {
-  Movie, MovieContainer, CountDisplay,
+  Movie, MovieContainer, CountDisplay, Loader,
 } from '../../components';
 import { getMovies } from '../../actions/movies';
 import { getMovieList, getIsLoadingFlag, getCount } from '../../selectors/movies';
-
-const loaderCss = css`
-  margin-top: 150px;
-`;
 
 const IndexPage = () => {
   const { filters } = useFilters();
@@ -27,18 +21,20 @@ const IndexPage = () => {
     }
   }, [filters]);
 
+  const hasMore = movies.length < count;
+
   return (
     <>
       { !isLoading && <CountDisplay count={count} /> }
       <MovieContainer>
-        <BeatLoader color="white" size={50} loading={isLoading} css={loaderCss} />
-
+        <Loader isLoading={isLoading} />
         { movies.map(({
           Poster, Title, Year, imdbID,
         }) => (
           <Movie imgSrc={Poster} title={Title} year={Year} id={imdbID} />
         ))}
       </MovieContainer>
+      <button type="button"> Load More </button>
     </>
   );
 };
