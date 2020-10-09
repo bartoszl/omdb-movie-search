@@ -51,7 +51,7 @@ const IndexPage = () => {
             to={compileMovieUrl(imdbID)}
           />
         ))}
-      </MovieContainer>
+      </MoviesList>
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
         <Loader isLoading={isLoading} />
         { hasMore && (
