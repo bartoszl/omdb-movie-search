@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loader } from '../../components';
+import { Loader, Ratings } from '../../components';
 
 import { getMovieById } from '../../actions/movies';
 import { getSingleMovie, getIsLoadingFlag } from '../../selectors/movies';
@@ -16,6 +16,7 @@ const MovieDetails = styled.div`
   display: flex;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 3px;
 `;
 
 const Bold = styled.span`
@@ -29,6 +30,15 @@ const Poster = styled.img`
   margin-right: 1rem;
 `;
 
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Title = styled.h2`
+  margin-top: 0;
+`;
+
 const SingleMoviePage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -40,36 +50,25 @@ const SingleMoviePage = () => {
   }, [id]);
 
   if (isLoading) {
-    return <Loader />;
+    return (
+      <Center>
+        <Loader />
+      </Center>
+    );
   }
 
   return (
     <MovieDetails>
       <div>
         <Poster src={movie.Poster} alt={movie.Title} />
-        <p> Ratings: </p>
-        <ul>
-          { movie.Ratings && movie.Ratings.map((rating) => (
-            <li>
-              {' '}
-              <Bold>
-                {' '}
-                { rating.Source }
-                :
-                {' '}
-              </Bold>
-              {' '}
-              { rating.Value}
-            </li>
-          ))}
-        </ul>
+        <Ratings ratings={movie.Ratings || []} />
       </div>
       <div>
-        <h2>
+        <Title>
           { `${movie.Title} (${movie.Year})` }
-        </h2>
+        </Title>
         <h4>
-          { `${movie.Released} | ${movie.Runtime} | ${movie.Genre} | ${movie.Country}` }
+          { `${movie.Released}, ${movie.Runtime}, ${movie.Genre}, ${movie.Country}` }
         </h4>
         <p>
           { movie.Plot }

@@ -10,3 +10,4 @@ export { default as CountDisplay } from './CountDisplay';
 export { default as TypingAnimation } from './TypingAnimation';
 export { default as Loader } from './Loader';
 export { default as LoadMoreButton } from './LoadMoreButton';
+export { default as Ratings } from './Ratings';
