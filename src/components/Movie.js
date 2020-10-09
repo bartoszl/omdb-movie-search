@@ -39,9 +39,9 @@ const Year = styled.h5`
 `;
 
 const Movie = ({
-  imgSrc, title, year, id,
+  imgSrc, title, year, to,
 }) => (
-  <MovieContainer to={SINGLE_MOVIE_URL.replace(':id', id)}>
+  <MovieContainer to={to}>
     <MoviePoster src={imgSrc} alt={title} />
     <Title>
       { title }
@@ -56,7 +56,7 @@ Movie.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
 };
 
 export default Movie;

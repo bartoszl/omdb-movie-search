@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
+import { INDEX_URL } from '../constants/routes';
 
-const LogoContainer = styled.div`
+const LogoContainer = styled(Link)`
   position: fixed;
   left: 2rem;
   top: 1.5rem;
+  cursor: pointer;
 `;
 
 const Logo = () => (
-  <LogoContainer>
+  <LogoContainer to={INDEX_URL}>
     <FontAwesomeIcon icon={faFilm} size="4x" color="white" />
   </LogoContainer>
 );

@@ -6,11 +6,12 @@ import {
 } from '../../components';
 import { getMovies, clearMovies } from '../../actions/movies';
 import { getMovieList, getIsLoadingFlag, getCount } from '../../selectors/movies';
+import { SINGLE_MOVIE_URL } from '../../constants/routes';
 
 const PER_PAGE = 10;
 
 const IndexPage = () => {
-  const { filters } = useFilters();
+  const { filters, compileUrlWithQuery } = useFilters();
   const { s } = filters;
   const dispatch = useDispatch();
   const movies = useSelector(getMovieList);
@@ -33,6 +34,8 @@ const IndexPage = () => {
 
   const hasMore = movies.length < count;
 
+  const compileMovieUrl = (id) => compileUrlWithQuery(SINGLE_MOVIE_URL.replace(':id', id));
+
   return (
     <>
       { !isLoading && <CountDisplay count={count} /> }
@@ -40,7 +43,13 @@ const IndexPage = () => {
         { movies.map(({
           Poster, Title, Year, imdbID,
         }) => (
-          <Movie imgSrc={Poster} title={Title} year={Year} id={imdbID} key={imdbID} />
+          <Movie
+            imgSrc={Poster}
+            title={Title}
+            year={Year}
+            key={imdbID}
+            to={compileMovieUrl(imdbID)}
+          />
         ))}
       </MovieContainer>
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>

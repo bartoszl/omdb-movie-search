@@ -15,9 +15,12 @@ const useFilters = () => {
     })}`);
   };
 
+  const compileUrlWithQuery = (url) => `${url}?${qs.stringify(filters)}`;
+
   return {
     applyFilters,
     filters,
+    compileUrlWithQuery,
   };
 };
 
