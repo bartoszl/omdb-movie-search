@@ -33,7 +33,7 @@ export const getMovieById = createAsyncThunk(
     }
 
     return {
-      records: data.Search,
+      record: data,
     };
   },
 );

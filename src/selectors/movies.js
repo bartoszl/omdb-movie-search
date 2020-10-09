@@ -19,3 +19,7 @@ export const getCount = (
 export const getError = (
   state,
 ) => getMoviesState(state).error;
+
+export const getSingleMovie = (
+  state,
+) => getMoviesState(state).record;
