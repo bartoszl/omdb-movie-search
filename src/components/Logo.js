@@ -8,7 +8,7 @@ import { INDEX_URL } from '../constants/routes';
 const LogoContainer = styled(Link)`
   position: fixed;
   left: 2rem;
-  top: 1.5rem;
+  top: 1.75rem;
   cursor: pointer;
 `;
 

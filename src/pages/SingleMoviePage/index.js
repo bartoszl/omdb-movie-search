@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loader, Ratings } from '../../components';
+import {
+  Loader, Ratings, InfoText,
+} from '../../components';
 
 import { getMovieById } from '../../actions/movies';
 import { getSingleMovie, getIsLoadingFlag } from '../../selectors/movies';
@@ -17,11 +19,6 @@ const MovieDetails = styled.div`
   margin-left: auto;
   margin-right: auto;
   border-radius: 3px;
-`;
-
-const Bold = styled.span`
-  font-weight: 600;
-  font-size: 0.9rem;
 `;
 
 const Poster = styled.img`
@@ -73,22 +70,18 @@ const SingleMoviePage = () => {
         <p>
           { movie.Plot }
         </p>
-        <p>
-          <Bold> Director: </Bold>
+        <InfoText label="Director: ">
           { movie.Director }
-        </p>
-        <p>
-          <Bold>Writer: </Bold>
+        </InfoText>
+        <InfoText label="Writer: ">
           { movie.Writer }
-        </p>
-        <p>
-          <Bold>Actors: </Bold>
+        </InfoText>
+        <InfoText label="Actors: ">
           { movie.Actors }
-        </p>
-        <p>
-          <Bold>Awards: </Bold>
+        </InfoText>
+        <InfoText label="Awards: ">
           { movie.Awards }
-        </p>
+        </InfoText>
       </div>
     </MovieDetails>
   );
