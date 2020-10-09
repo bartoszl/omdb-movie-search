@@ -1,10 +1,33 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Loader } from '../../components';
 
 import { getMovieById } from '../../actions/movies';
 import { getSingleMovie, getIsLoadingFlag } from '../../selectors/movies';
+
+const MovieDetails = styled.div`
+  background-color: ${({ theme }) => theme.colors.background};
+  box-shadow: ${({ theme }) => theme.shadow.small};
+  color: white;
+  padding: 1rem;
+  width: 70%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const Bold = styled.span`
+  font-weight: 600;
+  font-size: 0.9rem;
+`;
+
+const Poster = styled.img`
+  width: 248px;
+  height: auto;
+  margin-right: 1rem;
+`;
 
 const SingleMoviePage = () => {
   const { id } = useParams();
@@ -21,74 +44,54 @@ const SingleMoviePage = () => {
   }
 
   return (
-    <div>
-      <img src={movie.Poster} alt={movie.Title} />
-      <h2>
-        {' '}
-        { movie.Title}
-      </h2>
-      <h4>
-        {' '}
-        { movie.Released }
-      </h4>
-      <h5>
-        {' '}
-        { movie.Runtime }
-      </h5>
-      <h5>
-        {' '}
-        { movie.Genre }
-      </h5>
-      <p>
-        {' '}
-        Director:
-        {' '}
-        { movie.Director }
-      </p>
-      <p>
-
-        Writer:
-
-        { movie.Writer }
-      </p>
-      <p>
-
-        Actors:
-
-        { movie.Actors }
-      </p>
-      <p>
-
-        { movie.Country }
-      </p>
-      <p>
-
-        Awards:
-
-        { movie.Awards }
-      </p>
-      <p>
-
-        Metascore:
-
-        { movie.Metascore }
-      </p>
-      <p>
-
-        IMDB Rating:
-
-        { movie.imdbRating }
-
-        (Votes:
-        {movie.imdbVotes}
-        )
-      </p>
-
-      <p>
-        {' '}
-        { movie.Plot }
-      </p>
-    </div>
+    <MovieDetails>
+      <div>
+        <Poster src={movie.Poster} alt={movie.Title} />
+        <p> Ratings: </p>
+        <ul>
+          { movie.Ratings && movie.Ratings.map((rating) => (
+            <li>
+              {' '}
+              <Bold>
+                {' '}
+                { rating.Source }
+                :
+                {' '}
+              </Bold>
+              {' '}
+              { rating.Value}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2>
+          { `${movie.Title} (${movie.Year})` }
+        </h2>
+        <h4>
+          { `${movie.Released} | ${movie.Runtime} | ${movie.Genre} | ${movie.Country}` }
+        </h4>
+        <p>
+          { movie.Plot }
+        </p>
+        <p>
+          <Bold> Director: </Bold>
+          { movie.Director }
+        </p>
+        <p>
+          <Bold>Writer: </Bold>
+          { movie.Writer }
+        </p>
+        <p>
+          <Bold>Actors: </Bold>
+          { movie.Actors }
+        </p>
+        <p>
+          <Bold>Awards: </Bold>
+          { movie.Awards }
+        </p>
+      </div>
+    </MovieDetails>
   );
 };
 

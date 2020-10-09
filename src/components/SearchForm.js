@@ -11,6 +11,7 @@ import SearchFormWrapper from './SearchFormWrapper';
 import Error from './Error';
 
 import { getError } from '../selectors/movies';
+import { INDEX_URL } from '../constants/routes';
 
 const SearchForm = ({ defaultValues }) => {
   const {
@@ -21,10 +22,10 @@ const SearchForm = ({ defaultValues }) => {
 
   const error = useSelector(getError);
 
-  const { applyFilters } = useFilters();
+  const { navigateWithSearchQuery } = useFilters();
 
   const handleSearchSubmit = async (values) => {
-    applyFilters(values);
+    navigateWithSearchQuery(values, INDEX_URL);
   };
 
   return (

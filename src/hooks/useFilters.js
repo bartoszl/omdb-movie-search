@@ -8,8 +8,8 @@ const useFilters = () => {
 
   const filters = useMemo(() => qs.parse(search.slice(1)), [search]);
 
-  const applyFilters = (newFilters) => {
-    history.push(`${pathname}?${qs.stringify({
+  const navigateWithSearchQuery = (newFilters, url) => {
+    history.push(`${url || pathname}?${qs.stringify({
       ...filters,
       ...newFilters,
     })}`);
@@ -18,7 +18,7 @@ const useFilters = () => {
   const compileUrlWithQuery = (url) => `${url}?${qs.stringify(filters)}`;
 
   return {
-    applyFilters,
+    navigateWithSearchQuery,
     filters,
     compileUrlWithQuery,
   };

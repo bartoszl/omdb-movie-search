@@ -13,4 +13,4 @@ export const getMovies = async (params) => {
   return data;
 };
 
-export const getMovieById = async (id) => getMovies({ i: id });
+export const getMovieById = async (id) => getMovies({ i: id, plot: 'full' });
