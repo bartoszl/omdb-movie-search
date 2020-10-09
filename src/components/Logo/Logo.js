@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import { INDEX_URL } from '../constants/routes';
+import { INDEX_URL } from '../../constants/routes';
 
 const LogoContainer = styled(Link)`
   position: fixed;

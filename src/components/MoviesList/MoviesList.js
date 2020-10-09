@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const MovieContainer = styled.div`
+const MoviesList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,4 +9,4 @@ const MovieContainer = styled.div`
   height: 100%;
 `;
 
-export default MovieContainer;
+export default MoviesList;

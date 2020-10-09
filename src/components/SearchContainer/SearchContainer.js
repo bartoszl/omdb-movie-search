@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { BACKGROUND_GREY } from '../constants/colors';
-import bg from '../assets/search-bg.jpg';
+import { BACKGROUND_GREY } from '../../constants/colors';
+import bg from '../../assets/search-bg.jpg';
 
 const SearchContainer = styled.div`
   width: 100vw;

@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { SHADOW, BACKGROUND_GREY } from '../constants/colors';
-import { SINGLE_MOVIE_URL } from '../constants/routes';
+import { BACKGROUND_GREY } from '../../constants/colors';
 
 const MovieContainer = styled(Link)`
   margin: 4px 8px 16px 8px;
@@ -12,12 +11,12 @@ const MovieContainer = styled(Link)`
   border-radius: 3px;
   background-color: ${BACKGROUND_GREY};
   color: white;
-  box-shadow: 0 0 5px 1px ${SHADOW};
+  box-shadow: ${({ theme }) => theme.shadow.small};
   transition: all 0.25s;
   text-decoration: none;
 
   &:hover {
-    box-shadow: 0 0 7px 2px ${SHADOW};
+    box-shadow: ${({ theme }) => theme.shadow.large};
     padding: 8px;
     margin: 0px 4px 12px 4px;
   }

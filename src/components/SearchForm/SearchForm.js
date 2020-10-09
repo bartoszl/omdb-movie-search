@@ -4,14 +4,14 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import useFilters from '../hooks/useFilters';
-import Input from './Input';
-import Button from './Button';
-import SearchFormWrapper from './SearchFormWrapper';
-import Error from './Error';
+import useFilters from '../../hooks/useFilters';
+import Input from '../Input';
+import Button from '../Button';
+import SearchInputWrapper from '../SearchInputWrapper';
+import Error from '../Error';
 
-import { getError } from '../selectors/movies';
-import { INDEX_URL } from '../constants/routes';
+import { getError } from '../../selectors/movies';
+import { INDEX_URL } from '../../constants/routes';
 
 const SearchForm = ({ defaultValues }) => {
   const {
@@ -30,7 +30,7 @@ const SearchForm = ({ defaultValues }) => {
 
   return (
     <form onSubmit={handleSubmit(handleSearchSubmit)} data-testid="search-form">
-      <SearchFormWrapper>
+      <SearchInputWrapper>
         <Input
           type="text"
           ref={register({ minLength: 2 })}
@@ -40,7 +40,7 @@ const SearchForm = ({ defaultValues }) => {
         <Button type="submit">
           <FontAwesomeIcon icon={faSearch} color="white" />
         </Button>
-      </SearchFormWrapper>
+      </SearchInputWrapper>
       <Error>
         { (errors.s && 'Query should be at least 2 characters long') || error }
       </Error>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useFilters from '../../hooks/useFilters';
 import {
-  Movie, MovieContainer, CountDisplay, Loader, LoadMoreButton,
+  Movie, MoviesList, CountDisplay, Loader, LoadMoreButton,
 } from '../../components';
 import { getMovies, clearMovies } from '../../actions/movies';
 import { getMovieList, getIsLoadingFlag, getCount } from '../../selectors/movies';
@@ -39,7 +39,7 @@ const IndexPage = () => {
   return (
     <>
       { !isLoading && <CountDisplay count={count} /> }
-      <MovieContainer>
+      <MoviesList>
         { movies.map(({
           Poster, Title, Year, imdbID,
         }) => (
