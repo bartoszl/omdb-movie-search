@@ -4,8 +4,10 @@ import useFilters from '../../hooks/useFilters';
 import {
   Movie, MovieContainer, CountDisplay, Loader,
 } from '../../components';
-import { getMovies } from '../../actions/movies';
+import { getMovies, clearMovies } from '../../actions/movies';
 import { getMovieList, getIsLoadingFlag, getCount } from '../../selectors/movies';
+
+const PER_PAGE = 10;
 
 const IndexPage = () => {
   const { filters } = useFilters();
@@ -17,9 +19,17 @@ const IndexPage = () => {
 
   useEffect(() => {
     if (s) {
+      dispatch(clearMovies());
       dispatch(getMovies(filters));
     }
   }, [filters]);
+
+  const handleMoreMovies = () => {
+    dispatch(getMovies({
+      ...filters,
+      page: Math.floor(movies.length / PER_PAGE) + 1,
+    }));
+  };
 
   const hasMore = movies.length < count;
 
@@ -27,14 +37,14 @@ const IndexPage = () => {
     <>
       { !isLoading && <CountDisplay count={count} /> }
       <MovieContainer>
-        <Loader isLoading={isLoading} />
         { movies.map(({
           Poster, Title, Year, imdbID,
         }) => (
           <Movie imgSrc={Poster} title={Title} year={Year} id={imdbID} />
         ))}
       </MovieContainer>
-      <button type="button"> Load More </button>
+      <Loader isLoading={isLoading} />
+      { hasMore && <button type="button" onClick={handleMoreMovies}> Load More </button> }
     </>
   );
 };

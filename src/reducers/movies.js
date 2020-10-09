@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
-  getMovies, getMovieById,
+  getMovies, getMovieById, clearMovies,
 } from '../actions/movies';
 
 export const initialState = {
@@ -15,13 +15,16 @@ const reducer = createReducer(initialState, (builder) => builder
   .addCase(getMovies.pending, (state) => ({
     ...state,
     isLoading: true,
-    records: [],
+    // records: [],
     error: null,
     count: 0,
   }))
   .addCase(getMovies.fulfilled, (state, action) => ({
     ...state,
-    records: action.payload.records,
+    records: [
+      ...state.records,
+      ...action.payload.records,
+    ],
     isLoading: false,
     error: null,
     count: action.payload.count,
@@ -51,6 +54,11 @@ const reducer = createReducer(initialState, (builder) => builder
     isLoading: false,
     record: {},
     error: action.payload,
+  }))
+
+  .addCase(clearMovies.type, (state) => ({
+    ...state,
+    records: [],
   })));
 
 export default reducer;

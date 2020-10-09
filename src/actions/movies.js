@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import * as api from '../api/movies';
 
 const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
@@ -37,3 +37,5 @@ export const getMovieById = createAsyncThunk(
     };
   },
 );
+
+export const clearMovies = createAction('CLEAR_MOVIES');
