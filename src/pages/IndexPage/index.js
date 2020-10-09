@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useFilters from '../../hooks/useFilters';
 import {
-  Movie, MovieContainer, CountDisplay, Loader,
+  Movie, MovieContainer, CountDisplay, Loader, LoadMoreButton,
 } from '../../components';
 import { getMovies, clearMovies } from '../../actions/movies';
 import { getMovieList, getIsLoadingFlag, getCount } from '../../selectors/movies';
@@ -40,11 +40,21 @@ const IndexPage = () => {
         { movies.map(({
           Poster, Title, Year, imdbID,
         }) => (
-          <Movie imgSrc={Poster} title={Title} year={Year} id={imdbID} />
+          <Movie imgSrc={Poster} title={Title} year={Year} id={imdbID} key={imdbID} />
         ))}
       </MovieContainer>
-      <Loader isLoading={isLoading} />
-      { hasMore && <button type="button" onClick={handleMoreMovies}> Load More </button> }
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+        <Loader isLoading={isLoading} />
+        { hasMore && (
+        <LoadMoreButton
+          type="button"
+          onClick={handleMoreMovies}
+        >
+          Load More
+        </LoadMoreButton>
+        )}
+      </div>
+
     </>
   );
 };
