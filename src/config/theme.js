@@ -11,4 +11,5 @@ export default {
     small: `0 0 5px 1px ${shadow}`,
     large: `0 0 7px 2px ${shadow}`,
   },
+  borderRadius: '3px',
 };

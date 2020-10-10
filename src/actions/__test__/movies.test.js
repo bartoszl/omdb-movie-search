@@ -76,11 +76,11 @@ describe('actions/movie', () => {
       const store = mockStore({ todos: [] });
 
       // @ts-ignore
-      const { meta: { requestId } } = await store.dispatch(getMasterCategoryById(id));
+      const { meta: { requestId } } = await store.dispatch(getMovieById(id));
 
       const expectedActions = [
-        getMasterCategoryById.pending(requestId, id),
-        getMasterCategoryById.fulfilled(returnValue, requestId, id),
+        getMovieById.pending(requestId, id),
+        getMovieById.fulfilled(returnValue, requestId, id),
       ];
 
       expect(store.getActions()).toEqual(expectedActions);
@@ -96,11 +96,11 @@ describe('actions/movie', () => {
       const store = mockStore({ todos: [] });
 
       // @ts-ignore
-      const { meta: { requestId } } = await store.dispatch(getMasterCategoryById(id));
+      const { meta: { requestId } } = await store.dispatch(getMovieById(id));
 
       const expectedActions = [
-        getMasterCategoryById.pending(requestId, id),
-        getMasterCategoryById.rejected(returnValue, requestId, id),
+        getMovieById.pending(requestId, id),
+        getMovieById.rejected(returnValue, requestId, id),
       ];
 
       expect(store.getActions()).toEqual(expectedActions);
