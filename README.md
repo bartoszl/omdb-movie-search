@@ -8,7 +8,7 @@ The is hosted using github pages and can be accessed [HERE](HERE).
 
 ## Running app locally
 
-In order to run the app locally you need to run two screipts"
+In order to run the app locally you need to run two scripts"
 
 `npm i`
 
@@ -16,7 +16,7 @@ and then
 
 `npm start`
 
-The app will be availeble on `http://localhost:3000`;
+The app will be available on `http://localhost:3000`;
 
 ## Key dependencies
 
