@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup } from '../../testUtils';
 import Button from './Button';
 
 describe('Button', () => {

@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -6,8 +5,12 @@ import * as api from '../../api/movies';
 import {
   getMovies, getMovieById,
 } from '../movies';
+import moviesSuccess from '../../__apiMocks__/movies/getListSuccess';
+import moviesFailure from '../../__apiMocks__/movies/getListFailure';
+import singleMovieSuccess from '../../__apiMocks__/movies/getSingleSuccess';
+import singleMovieFailure from '../../__apiMocks__/movies/getSingleFailure';
 
-jest.mock('../api/movies');
+jest.mock('../../api/movies');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -16,29 +19,22 @@ describe('actions/movie', () => {
   describe('getMovies', () => {
     const filters = { s: 'movie' };
 
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
     it('calls correct action creators on success', async () => {
-      const returnValue = {
-        value: {
-          name: 'A Master',
-        },
-        '@odata.count': 123,
-        meta: {},
-      };
+      api.getMovies.mockResolvedValueOnce(moviesSuccess);
 
-      // @ts-ignore
-      api.getMasterCategories.mockResolvedValue(returnValue);
+      const store = mockStore({ });
 
-      const store = mockStore({ todos: [] });
-
-      // @ts-ignore
       const { meta: { requestId } } = await store.dispatch(getMovies(filters));
 
       const expectedActions = [
         getMovies.pending(requestId, filters),
         getMovies.fulfilled({
-          records: returnValue.value,
-          count: returnValue['@odata.count'],
-          meta: returnValue.meta,
+          records: moviesSuccess.Search,
+          count: moviesSuccess.totalResults,
         }, requestId, filters),
       ];
 
@@ -46,19 +42,17 @@ describe('actions/movie', () => {
     });
 
     it('calls correct action creators on failure', async () => {
-      const returnValue = { name: 'A Master' };
-
-      // @ts-ignore
-      api.getMasterCategories.mockRejectedValue(returnValue);
+      api.getMovies.mockRejectedValueOnce(moviesFailure);
 
       const store = mockStore({});
 
-      // @ts-ignore
       const { meta: { requestId } } = await store.dispatch(getMovies(filters));
 
       const expectedActions = [
         getMovies.pending(requestId, filters),
-        getMovies.rejected(returnValue, requestId, filters),
+        getMovies.rejected({
+          error: moviesFailure.Error,
+        }, requestId, filters),
       ];
 
       expect(store.getActions()).toEqual(expectedActions);
@@ -66,41 +60,41 @@ describe('actions/movie', () => {
   });
 
   describe('getMovieById', () => {
+    const id = '123';
+
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
     it('calls correct action creators on success', async () => {
-      const returnValue = { name: 'A Master' };
-      const id = '123';
+      api.getMovieById.mockResolvedValueOnce(singleMovieSuccess);
 
-      // @ts-ignore
-      api.getMasterCategoryById.mockResolvedValue(returnValue);
+      const store = mockStore({});
 
-      const store = mockStore({ todos: [] });
-
-      // @ts-ignore
       const { meta: { requestId } } = await store.dispatch(getMovieById(id));
 
       const expectedActions = [
         getMovieById.pending(requestId, id),
-        getMovieById.fulfilled(returnValue, requestId, id),
+        getMovieById.fulfilled({
+          record: singleMovieSuccess,
+        }, requestId, id),
       ];
 
       expect(store.getActions()).toEqual(expectedActions);
     });
 
     it('calls correct action creators on failure', async () => {
-      const returnValue = { name: 'A Master' };
-      const id = '123';
+      api.getMovieById.mockRejectedValueOnce(singleMovieFailure);
 
-      // @ts-ignore
-      api.getMasterCategoryById.mockRejectedValue(returnValue);
+      const store = mockStore({});
 
-      const store = mockStore({ todos: [] });
-
-      // @ts-ignore
       const { meta: { requestId } } = await store.dispatch(getMovieById(id));
 
       const expectedActions = [
         getMovieById.pending(requestId, id),
-        getMovieById.rejected(returnValue, requestId, id),
+        getMovieById.rejected({
+          error: singleMovieFailure.Error,
+        }, requestId, id),
       ];
 
       expect(store.getActions()).toEqual(expectedActions);

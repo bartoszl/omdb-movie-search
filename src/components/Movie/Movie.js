@@ -15,6 +15,10 @@ const MovieContainer = styled(Link)`
   transition: all 0.25s;
   text-decoration: none;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &:hover {
     box-shadow: ${({ theme }) => theme.shadow.large};
     padding: 8px;
@@ -42,12 +46,14 @@ const Movie = ({
 }) => (
   <MovieContainer to={to}>
     <MoviePoster src={imgSrc} alt={title} />
-    <Title>
-      { title }
-    </Title>
-    <Year>
-      { year }
-    </Year>
+    <div>
+      <Title>
+        { title }
+      </Title>
+      <Year>
+        { year }
+      </Year>
+    </div>
   </MovieContainer>
 );
 

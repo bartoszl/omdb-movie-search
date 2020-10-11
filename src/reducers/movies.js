@@ -33,7 +33,7 @@ const reducer = createReducer(initialState, (builder) => builder
     ...state,
     isLoading: false,
     records: [],
-    error: action.payload,
+    error: action.payload.error,
     count: 0,
   }))
 
@@ -53,7 +53,7 @@ const reducer = createReducer(initialState, (builder) => builder
     ...state,
     isLoading: false,
     record: {},
-    error: action.payload,
+    error: action.payload.error,
   }))
 
   .addCase(clearMovies.type, (state) => ({

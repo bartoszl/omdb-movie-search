@@ -1,4 +1,5 @@
 import axios from 'axios';
+import wait from '../helpers/wait';
 
 const { REACT_APP_API_URL, REACT_APP_API_KEY } = process.env;
 
@@ -9,6 +10,8 @@ export const getMovies = async (params) => {
       ...params,
     },
   });
+
+  await wait(2000);
 
   return data;
 };
