@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 import useFilters from '../../hooks/useFilters';
 import Input from '../Input';
 import Button from '../Button';
@@ -12,6 +13,11 @@ import Error from '../Error';
 
 import { getError } from '../../selectors/movies';
 import { INDEX_URL } from '../../constants/routes';
+
+const Form = styled.form`
+  position: relative;
+  padding-bottom: 1.5rem;
+`;
 
 const SearchForm = ({ defaultValues }) => {
   const {
@@ -29,7 +35,7 @@ const SearchForm = ({ defaultValues }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleSearchSubmit)} data-testid="search-form">
+    <Form onSubmit={handleSubmit(handleSearchSubmit)} data-testid="search-form">
       <SearchInputWrapper>
         <Input
           type="text"
@@ -45,7 +51,7 @@ const SearchForm = ({ defaultValues }) => {
       <Error>
         { (errors.s && 'Query should be at least 2 characters long') || error }
       </Error>
-    </form>
+    </Form>
   );
 };
 
