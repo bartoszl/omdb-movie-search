@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/omdb-movie-search/static/js/main.91c9854c.chunk.js",
-    "main.js.map": "/omdb-movie-search/static/js/main.91c9854c.chunk.js.map",
+    "main.js": "/omdb-movie-search/static/js/main.42eaea27.chunk.js",
+    "main.js.map": "/omdb-movie-search/static/js/main.42eaea27.chunk.js.map",
     "runtime-main.js": "/omdb-movie-search/static/js/runtime-main.a385772e.js",
     "runtime-main.js.map": "/omdb-movie-search/static/js/runtime-main.a385772e.js.map",
-    "static/js/2.f4ba1bd5.chunk.js": "/omdb-movie-search/static/js/2.f4ba1bd5.chunk.js",
-    "static/js/2.f4ba1bd5.chunk.js.map": "/omdb-movie-search/static/js/2.f4ba1bd5.chunk.js.map",
+    "static/js/2.1580122c.chunk.js": "/omdb-movie-search/static/js/2.1580122c.chunk.js",
+    "static/js/2.1580122c.chunk.js.map": "/omdb-movie-search/static/js/2.1580122c.chunk.js.map",
     "index.html": "/omdb-movie-search/index.html",
-    "precache-manifest.886358f4e3308b611b776989c4ae3c39.js": "/omdb-movie-search/precache-manifest.886358f4e3308b611b776989c4ae3c39.js",
+    "precache-manifest.8138bdc3befdfda2a2b63718d1af1787.js": "/omdb-movie-search/precache-manifest.8138bdc3befdfda2a2b63718d1af1787.js",
     "service-worker.js": "/omdb-movie-search/service-worker.js",
-    "static/js/2.f4ba1bd5.chunk.js.LICENSE.txt": "/omdb-movie-search/static/js/2.f4ba1bd5.chunk.js.LICENSE.txt",
+    "static/js/2.1580122c.chunk.js.LICENSE.txt": "/omdb-movie-search/static/js/2.1580122c.chunk.js.LICENSE.txt",
     "static/media/movie-background.jpg": "/omdb-movie-search/static/media/movie-background.7c4c06c1.jpg",
     "static/media/search-bg.jpg": "/omdb-movie-search/static/media/search-bg.43ac756b.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a385772e.js",
-    "static/js/2.f4ba1bd5.chunk.js",
-    "static/js/main.91c9854c.chunk.js"
+    "static/js/2.1580122c.chunk.js",
+    "static/js/main.42eaea27.chunk.js"
   ]
 }
