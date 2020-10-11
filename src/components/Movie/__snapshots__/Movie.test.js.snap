@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoLabel matches snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="sc-bdnylx dwuzaO"
+    href="/asd"
+  >
+    <img
+      alt="Title"
+      class="sc-gtssRu ePsuqd"
+      src="www.image.pl"
+    />
+    <div>
+      <h4
+        class="sc-dlnjPT jAnuC"
+      >
+        Title
+      </h4>
+      <h5
+        class="sc-hKFyIo gaWfhD"
+      >
+        1993
+      </h5>
+    </div>
+  </a>
+</DocumentFragment>
+`;

@@ -22,15 +22,10 @@ const Ratings = ({ ratings }) => (
     <Header> Ratings: </Header>
     <RatingList>
       { ratings && ratings.map((rating) => (
-        <Rating>
-          {' '}
+        <Rating key={rating.Source}>
           <InfoLabel>
-            {' '}
-            { rating.Source }
-            :
-            {' '}
+            { `${rating.Source}: ` }
           </InfoLabel>
-          {' '}
           { rating.Value }
         </Rating>
       ))}

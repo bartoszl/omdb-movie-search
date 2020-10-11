@@ -2,12 +2,20 @@ import React from 'react';
 import { render, cleanup, screen } from '../../testUtils';
 import Layout from './Layout';
 import useFilters from '../../hooks/useFilters';
+import { getError } from '../../selectors/movies';
 
+jest.mock('../../selectors/movies');
 jest.mock('../../hooks/useFilters');
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn((fn) => fn()),
+  useDispatch: () => jest.fn(),
+}));
 
 describe('InfoLabel', () => {
   const s = 'Text';
   const content = 'content';
+
+  getError.mockReturnValue(undefined);
 
   afterEach(() => {
     cleanup();

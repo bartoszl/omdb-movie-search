@@ -5,8 +5,15 @@ import {
 import SearchForm from './SearchForm';
 import useFilters from '../../hooks/useFilters';
 import { INDEX_URL } from '../../constants/routes';
+import { getError } from '../../selectors/movies';
 
 jest.mock('../../hooks/useFilters');
+jest.mock('../../selectors/movies');
+
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn((fn) => fn()),
+  useDispatch: () => jest.fn(),
+}));
 
 describe('SearchForm', () => {
   afterEach(() => {
@@ -15,6 +22,8 @@ describe('SearchForm', () => {
 
   test('calls correct function on submit', async () => {
     const value = 'search';
+
+    getError.mockReturnValueOnce(undefined);
     const navigateWithSearchQuery = jest.fn();
     useFilters.mockReturnValue({
       navigateWithSearchQuery,
@@ -40,6 +49,7 @@ describe('SearchForm', () => {
 
   test('sets default values correctly', async () => {
     const value = 'search';
+    getError.mockReturnValueOnce(undefined);
 
     render((
       <SearchForm defaultValues={{ s: value }} />

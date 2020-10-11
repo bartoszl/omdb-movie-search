@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Providers from './Providers';
+import { ThemeProvider } from 'styled-components';
+import theme from './config/theme';
 
 const TestProviders = ({ children }) => (
-  <Providers>
+  <ThemeProvider theme={theme}>
     <MemoryRouter>
       {children}
     </MemoryRouter>
-  </Providers>
+  </ThemeProvider>
 );
 
 TestProviders.propTypes = {

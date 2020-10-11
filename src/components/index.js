@@ -13,3 +13,4 @@ export { default as LoadMoreButton } from './LoadMoreButton';
 export { default as Ratings } from './Ratings';
 export { default as InfoLabel } from './InfoLabel';
 export { default as InfoText } from './InfoText';
+export { default as Center } from './Center';
