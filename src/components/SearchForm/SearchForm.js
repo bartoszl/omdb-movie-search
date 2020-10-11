@@ -36,6 +36,7 @@ const SearchForm = ({ defaultValues }) => {
           ref={register({ minLength: 2 })}
           name="s"
           placeholder="Search..."
+          data-testid="search-input"
         />
         <Button type="submit">
           <FontAwesomeIcon icon={faSearch} color="white" />

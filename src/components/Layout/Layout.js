@@ -13,10 +13,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <SearchContainer collapsed={s}>
+      <SearchContainer collapsed={s} data-testid="search-container">
         <Logo />
         { !s && (
-          <TypingAnimation>
+          <TypingAnimation data-testid="typing-animation">
             Find your favorite movie!
           </TypingAnimation>
         )}

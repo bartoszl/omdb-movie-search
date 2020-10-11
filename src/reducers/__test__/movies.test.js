@@ -1,5 +1,5 @@
 import {
-  getMovies, getMovieById,
+  getMovies, getMovieById, clearMovies,
 } from '../../actions/movies';
 import reducer, { initialState } from '../movies';
 
@@ -11,7 +11,6 @@ describe('Movies reducer', () => {
       })).toEqual({
         ...initialState,
         isLoading: true,
-        records: [],
         error: null,
         count: 0,
       });
@@ -36,7 +35,9 @@ describe('Movies reducer', () => {
     });
 
     it('returns correct state on rejected', () => {
-      const error = 'err';
+      const error = {
+        error: 'err',
+      };
 
       expect(reducer(initialState, {
         type: getMovies.rejected.type,
@@ -45,7 +46,7 @@ describe('Movies reducer', () => {
         ...initialState,
         isLoading: false,
         records: [],
-        error,
+        error: error.error,
         count: 0,
       });
     });
@@ -82,7 +83,9 @@ describe('Movies reducer', () => {
     });
 
     it('returns correct state on rejected', () => {
-      const error = 'err';
+      const error = {
+        error: 'err',
+      };
 
       expect(reducer(initialState, {
         type: getMovieById.rejected.type,
@@ -91,7 +94,18 @@ describe('Movies reducer', () => {
         ...initialState,
         isLoading: false,
         record: {},
-        error,
+        error: error.error,
+      });
+    });
+  });
+
+  describe('clearMovies', () => {
+    it('return correct state', () => {
+      expect(reducer(initialState, {
+        type: clearMovies.type,
+      })).toEqual({
+        ...initialState,
+        records: [],
       });
     });
   });

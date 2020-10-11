@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error matches snapshot 1`] = `
+<DocumentFragment>
+  <p
+    class="sc-bdnylx bPUvli"
+  >
+    Error
+  </p>
+</DocumentFragment>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoLabel matches snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="sc-bdnylx iXUFvQ"
+  >
+    Label
+  </span>
+</DocumentFragment>
+`;

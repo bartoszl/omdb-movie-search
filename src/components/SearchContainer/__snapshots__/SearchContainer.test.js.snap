@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoLabel matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdnylx kMIWSX"
+  />
+</DocumentFragment>
+`;
+
+exports[`InfoLabel matches snapshot collapsed 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdnylx dZKstf"
+  />
+</DocumentFragment>
+`;

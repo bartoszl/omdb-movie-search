@@ -15,7 +15,6 @@ const reducer = createReducer(initialState, (builder) => builder
   .addCase(getMovies.pending, (state) => ({
     ...state,
     isLoading: true,
-    // records: [],
     error: null,
     count: 0,
   }))
