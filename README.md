@@ -6,6 +6,8 @@ This is a simple movie search app that uses omdb api. [OMDB API](http://www.omdb
 
 The is hosted using github pages and can be accessed [HERE](HERE).
 
+Best open in Chrome, cross-browser compatibility is on the TODO list.
+
 ## Running app locally
 
 In order to run the app locally you need to run two scripts"
@@ -41,3 +43,5 @@ Some of the future work items would be:
 - Allow user to 'go back' from the movie details page to movie list, without reloading the movie list.
 - Add more advanced search allowing the user to specify year.
 - Introduce integration test and full e2e tests with cypress.
+- Improve cross browser compatibility
+- Improve theming
